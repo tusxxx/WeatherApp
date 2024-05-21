@@ -17,6 +17,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
     @Provides
@@ -36,7 +39,7 @@ internal object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient) = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(okHttpClient)
-        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
 
     @Provides

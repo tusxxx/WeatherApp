@@ -26,8 +26,6 @@ data class WeatherResponse(
     val sys: Sys,
     @SerialName("timezone")
     val timezone: Int,
-    @SerialName("visibility")
-    val visibility: Int,
     @SerialName("weather")
     val weather: List<Weather>,
     @SerialName("wind")
@@ -65,16 +63,10 @@ data class WeatherResponse(
 
     @Serializable
     data class Sys(
-        @SerialName("country")
-        val country: String,
-        @SerialName("id")
-        val id: Int,
         @SerialName("sunrise")
         val sunrise: Int,
         @SerialName("sunset")
-        val sunset: Int,
-        @SerialName("type")
-        val type: Int
+        val sunset: Int
     )
 
     @Serializable

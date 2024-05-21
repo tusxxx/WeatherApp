@@ -11,5 +11,6 @@ data class WeatherData(
     val lat: Double,
     val lon: Double,
     val temperature: Double,
-    val windSpeed: Double
+    val windSpeed: Double,
+    val iconUrl: String
 )

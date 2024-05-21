@@ -15,6 +15,8 @@ internal class WeatherRepositoryImpl @Inject constructor(
     override suspend fun getWeather(lat: Double, lon: Double, units: Units): Weather = runCatching {
         val response = weatherApi.getWeather(lat, lon, units.toApiParameter())
         val weatherData = response.toWeatherData()
-        Weather.Success(weatherData)
-    }.getOrElse { Weather.Error(it) }
+        Weather.Success(weatherData) // todo нету полей
+    }.getOrElse {
+        Weather.Error(it)
+    }
 }

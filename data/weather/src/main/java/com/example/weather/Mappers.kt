@@ -14,5 +14,6 @@ fun WeatherResponse.toWeatherData() = WeatherData(
     lat = coord.lat,
     lon = coord.lon,
     temperature = main.temp,
-    windSpeed = wind.speed
+    windSpeed = wind.speed,
+    iconUrl = "https://openweathermap.org/img/wn/${weather.first().icon}@2x.png"
 )
