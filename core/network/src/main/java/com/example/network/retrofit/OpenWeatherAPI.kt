@@ -14,4 +14,11 @@ interface OpenWeatherAPI {
         @Query("units") units: String,
         @Query("appid") appId: String = apiKey
     ): WeatherResponse
+
+    @GET("weather")
+    suspend fun getWeather(
+        @Query("q") cityName: String,
+        @Query("units") units: String,
+        @Query("appid") appId: String = apiKey
+    ): WeatherResponse
 }

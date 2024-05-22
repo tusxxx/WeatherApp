@@ -3,7 +3,8 @@ package com.example.home
 
 data class HomeScreenUiState(
     val query: String = "",
-    val cities: List<CityUi> = emptyList()
+    val cities: List<CityUi> = emptyList(),
+    val isLoading: Boolean = true
 ) {
 
     data class CityUi(

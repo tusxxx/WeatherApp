@@ -78,6 +78,11 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect {
+                    if (it.isLoading) {
+                        binding.progressIndicator.show()
+                    } else {
+                        binding.progressIndicator.hide()
+                    }
                     Log.d("TAG", "onViewCreated: collecting $it") // todo remove
                     binding.searchView.setQuery(it.query, false)
                     adapter.submitList(it.cities)
