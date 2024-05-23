@@ -11,7 +11,11 @@ data class FirebaseCities(
 ) {
     @Serializable
     data class City(
-        @SerialName("name")
-        val name: String
+        @SerialName("city")
+        val name: String,
+        @SerialName("country")
+        val country: String,
+        @SerialName("id")
+        val id: Int
     )
 }
