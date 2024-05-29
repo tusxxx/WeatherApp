@@ -59,4 +59,5 @@ dependencies {
 
     implementation(project(":data:weather"))
     implementation(project(":data:cities"))
+    implementation(project(":core:preferences"))
 }

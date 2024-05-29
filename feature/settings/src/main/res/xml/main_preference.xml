@@ -2,14 +2,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/alerts">
+    <PreferenceCategory
+        android:title="@string/alerts"
+        app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
             android:key="notification_preference"
-            android:title="@string/notifications" />
+            android:title="@string/notifications"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/language">
+    <PreferenceCategory
+        android:title="@string/language"
+        app:iconSpaceReserved="false">
 
         <ListPreference
             android:defaultValue="0"
@@ -18,11 +23,14 @@
             android:key="language_preference"
             android:title="@string/language"
             app:entryValues="@array/language_entry_values"
+            app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
 
-    <PreferenceCategory android:title="@string/units">
+    <PreferenceCategory
+        android:title="@string/units"
+        app:iconSpaceReserved="false">
 
         <ListPreference
             android:defaultValue="0"
@@ -31,6 +39,7 @@
             android:key="temperature_preference"
             android:title="@string/temperature"
             app:entryValues="@array/temperature_entry_values"
+            app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
@@ -40,6 +49,7 @@
             android:key="wind_preference"
             android:title="@string/wind"
             app:entryValues="@array/wind_entry_values"
+            app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 </PreferenceScreen>

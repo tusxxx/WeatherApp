@@ -1,18 +1,18 @@
 package com.example.home
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.home.adapters.CitiesAdapter
+import com.example.home.adapters.FoundCitiesAdapter
 import com.example.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,11 +24,10 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val adapter = CitiesAdapter()
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("TAG", "onAttach: asddsa") // todo remove
+    private val foundCitiesAdapter = FoundCitiesAdapter {
+        viewModel.toggleCity(it)
+        viewModel.updateQuery("")
+        binding.searchView.hide()
     }
 
     override fun onCreateView(
@@ -58,20 +57,16 @@ class HomeFragment : Fragment() {
             adapter = this@HomeFragment.adapter
             layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
         }
+        binding.rvFilteredCities.apply {
+            adapter = foundCitiesAdapter
+            layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
+        }
     }
 
     private fun setupListeners() {
-        // todo impl search city
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.updateQuery(newText.orEmpty())
-                return true
-            }
-        })
+        binding.searchView.editText.addTextChangedListener {
+            viewModel.updateQuery(it?.toString().orEmpty())
+        }
     }
 
     private fun setupCollecting() {
@@ -83,9 +78,9 @@ class HomeFragment : Fragment() {
                     } else {
                         binding.progressIndicator.hide()
                     }
-                    Log.d("TAG", "onViewCreated: collecting $it") // todo remove
-                    binding.searchView.setQuery(it.query, false)
+                    binding.searchBar.setText(it.query)
                     adapter.submitList(it.cities)
+                    foundCitiesAdapter.submitList(it.filteredCityNames)
                 }
             }
         }
