@@ -2,6 +2,7 @@ package com.example.cities.di
 
 import com.example.cities.CitiesRepository
 import com.example.cities.CitiesRepositoryImpl
+import com.example.database.AppDatabase
 import com.example.firebase.FirebaseRemote
 import dagger.Module
 import dagger.Provides
@@ -15,8 +16,12 @@ internal object CitiesRepositoryModule {
     @Provides
     @Singleton
     fun provideCitiesRepository(
-        firebaseRemote: FirebaseRemote
+        firebaseRemote: FirebaseRemote,
+        appDatabase: AppDatabase
     ): CitiesRepository {
-        return CitiesRepositoryImpl(firebaseRemote = firebaseRemote)
+        return CitiesRepositoryImpl(
+            firebaseRemote = firebaseRemote,
+            appDatabase = appDatabase
+        )
     }
 }

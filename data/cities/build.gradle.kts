@@ -52,4 +52,5 @@ dependencies {
 
     implementation(project(":core:network"))
     implementation(project(":core:firebase"))
+    implementation(project(":core:database"))
 }

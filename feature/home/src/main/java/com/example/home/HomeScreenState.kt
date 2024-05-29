@@ -4,12 +4,13 @@ package com.example.home
 data class HomeScreenUiState(
     val query: String = "",
     val cities: List<CityUi> = emptyList(),
+    val filteredCityNames: List<String> = emptyList(),
     val isLoading: Boolean = true
 ) {
 
     data class CityUi(
         val name: String,
-        val temperatureInCelsius: Temperature,
+        val temperature: Temperature,
         val iconUrl: String = ""
     ) {
         sealed class Temperature(open val value: Double) {
