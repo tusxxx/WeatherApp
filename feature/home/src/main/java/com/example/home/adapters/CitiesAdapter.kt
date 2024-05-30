@@ -1,14 +1,16 @@
-package com.example.home
+package com.example.home.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.home.HomeScreenUiState
+import com.example.home.R
 import com.example.home.databinding.ItemCityViewHolderBinding
 
 class CitiesAdapter : ListAdapter<HomeScreenUiState.CityUi, CitiesAdapter.CityViewHolder>(CitiesDiffUtil) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         val binding = ItemCityViewHolderBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -22,10 +24,21 @@ class CitiesAdapter : ListAdapter<HomeScreenUiState.CityUi, CitiesAdapter.CityVi
         holder.bind(getItem(position))
     }
 
-    class CityViewHolder(private val binding: ItemCityViewHolderBinding) : RecyclerView.ViewHolder(binding.root) {
+    class CityViewHolder(private val binding: ItemCityViewHolderBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(cityUi: HomeScreenUiState.CityUi) {
             binding.tvCity.text = cityUi.name
-            binding.tvTemperature.text = cityUi.temperature.toString()
+
+            binding.tvTemperature.text = when (cityUi.temperature) {
+                is HomeScreenUiState.CityUi.Temperature.Celsius -> binding.root.context.getString(R.string.celsius_temperature)
+                is HomeScreenUiState.CityUi.Temperature.Fahrenheit -> binding.root.context.getString(
+                    R.string.fahrenheit_temperature
+                )
+            }.format(cityUi.temperature.value)
+
+            Glide.with(binding.root)
+                .load(cityUi.iconUrl)
+                .into(binding.ivIcon)
         }
     }
 
@@ -43,5 +56,6 @@ class CitiesAdapter : ListAdapter<HomeScreenUiState.CityUi, CitiesAdapter.CityVi
         ): Boolean {
             return oldItem == newItem
         }
+
     }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/alerts"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="notification_preference"
+            android:title="@string/notifications"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/language"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/language"
+            android:entries="@array/language_entries"
+            android:key="language_preference"
+            android:title="@string/language"
+            app:entryValues="@array/language_entry_values"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/units"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/temperature_units"
+            android:entries="@array/temperature_entries"
+            android:key="temperature_preference"
+            android:title="@string/temperature"
+            app:entryValues="@array/temperature_entry_values"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/wind_units"
+            android:entries="@array/wind_entries"
+            android:key="wind_preference"
+            android:title="@string/wind"
+            app:entryValues="@array/wind_entry_values"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

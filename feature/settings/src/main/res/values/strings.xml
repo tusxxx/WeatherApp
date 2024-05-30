@@ -1,0 +1,10 @@
+<resources>
+    <string name="alerts">Alerts</string>
+    <string name="notifications">Notifications</string>
+    <string name="language">Language</string>
+    <string name="units">Units</string>
+    <string name="temperature_units">Temperature Units</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind_units">Wind Units</string>
+    <string name="wind">Wind</string>
+</resources>

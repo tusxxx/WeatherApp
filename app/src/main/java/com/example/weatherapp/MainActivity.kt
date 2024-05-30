@@ -3,7 +3,6 @@ package com.example.weatherapp
 import android.os.Bundle
 import androidx.core.net.toUri
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.fragment.NavHostFragment
 import com.example.weatherapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +17,7 @@ class MainActivity : FragmentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        window.statusBarColor = getColor(R.color.md_theme_background)
         setupListeners()
     }
 
@@ -30,18 +30,15 @@ class MainActivity : FragmentActivity() {
             when (it.itemId) {
                 R.id.home_item -> {
                     navController.navigate("android-app://com.example.weather_app/home".toUri())
-                    binding.tvTitle.text = getString(R.string.home)
                     true
                 }
 
                 R.id.favorites_item -> {
-                    binding.tvTitle.text = getString(R.string.favorites)
                     navController.navigate("android-app://com.example.weather_app/favorites".toUri())
                     true
                 }
 
                 R.id.settings_item -> {
-                    binding.tvTitle.text = getString(R.string.settings)
                     navController.navigate("android-app://com.example.weather_app/settings".toUri())
                     true
                 }
