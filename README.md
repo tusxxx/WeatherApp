@@ -38,6 +38,7 @@ The project is divided into several modules:
 ## Authors
 
 - [Ignat Mustafaev](https://github.com/tusxxx) — project development and maintenance.
+- [Ignat Mustafaev](https://github.com/a-vengrzhinovskaya) — help with project development.
 
 ## License
 
@@ -84,6 +85,7 @@ WeatherApp — это Android-приложение для получения и 
 ## Авторы
 
 - [Игнат Мустафев](https://github.com/tusxxx) — разработка и поддержка проекта.
+- [Анжелика Венгржиновская](https://github.com/a-vengrzhinovskaya) — помощь в разработке.
 
 ## Лицензия
 
