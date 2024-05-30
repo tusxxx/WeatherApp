@@ -33,11 +33,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/appbar">
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/search_bar"
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/city_name" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:textFontWeight="800"
+                android:fontFamily="casual"
+                android:text="Hello. Today is 24.12.12"
+                android:textSize="26sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/search_bar"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/city_name" />
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.search.SearchView

@@ -25,7 +25,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/ic_remove"
-            android:backgroundTint="@color/cardview_dark_background" />
+            android:backgroundTint="@color/material_on_surface_emphasis_high_type" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

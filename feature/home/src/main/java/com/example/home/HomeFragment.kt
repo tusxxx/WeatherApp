@@ -16,6 +16,8 @@ import com.example.home.adapters.FoundCitiesAdapter
 import com.example.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.DateFormat
+import java.util.Calendar
 
 
 @AndroidEntryPoint
@@ -61,6 +63,9 @@ class HomeFragment : Fragment() {
             adapter = foundCitiesAdapter
             layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
         }
+        val today = Calendar.getInstance().time
+        val todayStr = DateFormat.getDateInstance(DateFormat.MEDIUM).format(today)
+        binding.tvTitle.text = "Hello. Today is $todayStr"
     }
 
     private fun setupListeners() {
