@@ -35,12 +35,9 @@ The project is divided into several modules:
 ![Screenshot_20240531_001059](https://github.com/tusxxx/WeatherApp/assets/91781511/96243985-dd65-430c-8b35-2b1bec0d1fb9)
 ![Screenshot_20240531_001106](https://github.com/tusxxx/WeatherApp/assets/91781511/74597921-2bc0-4f60-ab58-0cf0904ed0ec)
 
-
-(Here you can add application screenshots or gif animations demonstrating its functionality)
-
 ## Authors
 
-- [Your Name](https://github.com/tusxxx) — project development and maintenance.
+- [Ignat Mustafaev](https://github.com/tusxxx) — project development and maintenance.
 
 ## License
 
@@ -84,10 +81,9 @@ WeatherApp — это Android-приложение для получения и 
 ![Screenshot_20240531_001059](https://github.com/tusxxx/WeatherApp/assets/91781511/b6bcd15c-70b4-4cf0-8ce8-32d9c60994a8)
 ![Screenshot_20240531_001046](https://github.com/tusxxx/WeatherApp/assets/91781511/e5999037-9364-47ad-87b2-44a8c83f57b6)
 
-
 ## Авторы
 
-- [Ваше Имя](https://github.com/tusxxx) — разработка и поддержка проекта.
+- [Игнат Мустафев](https://github.com/tusxxx) — разработка и поддержка проекта.
 
 ## Лицензия
 
